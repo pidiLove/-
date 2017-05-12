@@ -1,0 +1,4 @@
+eclipse.preferences.version=1
+encoding//src/main/java/com/pa/park/core/entity/Role.java=GBK
+encoding//src/main/java/com/pa/park/core/shiro/MyRealm.java=UTF-8
+encoding//src/main/resources/springProperties/datasource.properties=UTF-8

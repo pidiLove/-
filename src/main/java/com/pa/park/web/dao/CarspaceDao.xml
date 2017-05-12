@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.pa.park.web.dao.CarspaceDao">
+ <!--  <cache type="org.mybatis.caches.ehcache.EhcacheCache" >  
+      <property name="timeToIdleSeconds" value="3600"/>
+      <property name="timeToLiveSeconds" value="3600"/>
+      <property name="maxEntriesLocalHeap" value="1000"/>  
+      <property name="maxEntriesLocalDisk" value="10000000"/>  
+      <property name="memoryStoreEvictionPolicy" value="LRU"/>  
+  </cache> -->
+  
+ 	<update id="updateCarspace" parameterType="Carspace">  
+        update car_space set space_status=#{space_status},
+        phonenumber=#{phonenumber},start_time=#{start_time} where space_location=#{space_location} and parking_id=#{parking_id}
+    </update>  
+    
+    <select  id="findEmptyCarspace"  parameterType="String" resultType="Carspace" >
+	 select * from car_space where parking_id=#{parking_id} and space_status=0
+	</select >
+ 
+ 
+	<select  id="findAllCarspace"  parameterType="String" resultType="Carspace" >
+	 select * from car_space where parking_id=#{parking_id}  
+	</select >
+	
+	<select  id="findStatus"  parameterType="String" resultType="int" >
+	 select space_status from car_space where parking_id=#{0} and space_location=#{1}
+	</select >
+	 
+</mapper>
